@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hannah Renée · LookFantastic Creator Storefront</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-lf.css" />
+  <link rel="stylesheet" href="styles-lf-2.css" />
+  <style>
+    :root {
+      --lf-pink: #ec5e8c;
+      --lf-pink-dark: #d44a78;
+      --lf-blush: #fdf2f5;
+      --lf-ink: #1f1f1f;
+      --lf-line: #ececec;
+    }
+    /* Pre-header strip */
+    .lf-prebar {
+      background: var(--lf-ink);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      padding: 8px 32px;
+    }
+    .lf-prebar span { opacity: 0.85; }
+    .lf-prebar .lf-prebar-pink { color: var(--lf-pink); opacity: 1; font-weight: 600; }
+
+    /* Chrome → white */
+    .sephora-chrome { background: #fff !important; color: var(--lf-ink) !important; border-bottom: 1px solid var(--lf-line); }
+    .sc-row { padding: 18px 32px !important; }
+    .sc-burger span { background: var(--lf-ink) !important; }
+    .sc-logo {
+      color: var(--lf-ink) !important;
+      font-family: 'Fraunces', serif !important;
+      font-weight: 400 !important;
+      font-style: italic;
+      letter-spacing: 0.02em !important;
+      font-size: 26px !important;
+      text-transform: none !important;
+    }
+    .sc-logo::after { content: ''; }
+    .sc-nav a { color: var(--lf-ink) !important; font-weight: 500 !important; text-transform: uppercase; font-size: 11px !important; letter-spacing: 0.12em !important; padding-bottom: 4px !important; }
+    .sc-nav a:hover { border-color: var(--lf-pink) !important; color: var(--lf-pink) !important; }
+    .sc-nav .sc-active { color: var(--lf-pink) !important; border-bottom: 2px solid var(--lf-pink); }
+    .sc-search { background: var(--lf-blush) !important; color: var(--lf-ink) !important; border: 1px solid var(--lf-line) !important; border-radius: 999px; }
+    .sc-icon { color: var(--lf-ink) !important; }
+    .sc-bag-count { background: var(--lf-pink) !important; }
+    .sc-bread { background: #fff !important; color: #777 !important; border-top: 1px solid var(--lf-line); padding: 12px 32px !important; }
+    .sc-bread .sc-sep { color: #ccc !important; }
+    .sc-bread .sc-current { color: var(--lf-ink) !important; font-weight: 600; }
+
+    /* Pink primary buttons everywhere except inside the dark hero */
+    .btn-pri { background: var(--lf-pink) !important; color: #fff !important; border-radius: 999px; }
+    .btn-pri:hover { background: var(--lf-pink-dark) !important; }
+    /* Keep the hero's white-on-black CTAs intact */
+    .hf-cta .btn-pri, .hm-floor .btn-pri { background: #fff !important; color: #000 !important; border-radius: 999px; }
+    .hf-cta .btn-pri:hover, .hm-floor .btn-pri:hover { background: var(--lf-pink) !important; color: #fff !important; }
+
+    /* Accents in body sections */
+    .hb-live { color: var(--lf-pink) !important; }
+    .hb-live-dot { background: var(--lf-pink) !important; }
+    .hb-ticker-label { background: var(--lf-pink) !important; color: #fff !important; }
+    .hb-btn-watch:hover { background: var(--lf-pink) !important; color: #fff !important; }
+
+    /* Section accents that previously used --red */
+    .stat-strip { background: var(--lf-blush) !important; }
+
+    /* ───── Light hero ───── */
+    .hero-broadcast { background: #fff !important; color: var(--lf-ink) !important; }
+    .hb-backdrop-img { opacity: 0.18 !important; filter: blur(70px) saturate(1.4) !important; }
+    .hb-backdrop-tint { background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(253,242,245,0.85) 60%, #fff 100%) !important; }
+    .hb-grain { opacity: 0.04 !important; }
+    .hb-chrome { color: var(--lf-ink) !important; border-bottom: 1px solid var(--lf-line) !important; }
+    .hb-divider { background: var(--lf-line) !important; }
+    .hb-name { color: var(--lf-ink) !important; }
+    .hb-name-italic em { color: var(--lf-pink) !important; }
+    .hb-byline, .hb-stats { color: #555 !important; }
+    .hb-stats b { color: var(--lf-ink) !important; }
+    .hb-name-strip { border-bottom: 1px solid var(--lf-line) !important; }
+    .hb-reel-frame { box-shadow: 0 30px 60px -20px rgba(236,94,140,0.25), 0 12px 24px -10px rgba(0,0,0,0.12) !important; }
+    .hb-reel:not(.is-active) { opacity: 0.85 !important; filter: brightness(0.96) !important; }
+    .hb-reel-meta { color: var(--lf-ink) !important; }
+    .hb-reel-cap { color: #444 !important; }
+    .hb-reel-vignette { background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.35) 100%) !important; }
+    .hb-ticker { background: var(--lf-blush) !important; color: var(--lf-ink) !important; border-top: 1px solid var(--lf-line) !important; }
+    .hb-ticker-sep { color: var(--lf-pink) !important; }
+    .hb-btn-watch { background: var(--lf-ink) !important; color: #fff !important; }
+    .hb-btn-watch:hover { background: var(--lf-pink) !important; }
+    .hb-btn-shop { background: var(--lf-pink) !important; color: #fff !important; border: 0 !important; }
+    .hb-btn-shop:hover { background: var(--lf-pink-dark) !important; }
+    .hb-reel-controls button { background: rgba(0,0,0,0.55) !important; color: #fff !important; }
+
+    /* Cinema marquee — also light */
+    .hero-marquee { background: #fff !important; color: var(--lf-ink) !important; }
+    .hm-line1, .hm-line2 { color: var(--lf-ink) !important; }
+    .hm-tagline em { color: var(--lf-pink) !important; }
+    .hm-floor { border-top: 1px solid var(--lf-line) !important; }
+    .hm-floor .btn-pri { background: var(--lf-pink) !important; color: #fff !important; }
+    .hm-floor .btn-pri:hover { background: var(--lf-pink-dark) !important; }
+    .hm-quote { color: #666 !important; }
+
+    /* Full-bleed + split heroes — keep dark visuals but allow CTAs to use pink */
+    .hf-cta .btn-pri:hover, .hs-cta .btn-pri:hover { background: var(--lf-pink) !important; color: #fff !important; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="data-lf.jsx"></script>
+  <script type="text/babel" src="chrome-lf.jsx"></script>
+  <script type="text/babel" src="hero-lf.jsx"></script>
+  <script type="text/babel" src="reels-lf.jsx"></script>
+  <script type="text/babel" src="sections-lf.jsx"></script>
+
+  <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "hero": "broadcast",
+      "shopTheLook": "timeline"
+    }/*EDITMODE-END*/;
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const [openReel, setOpenReel] = React.useState(null);
+      const [bag, setBag] = React.useState([]);
+
+      const addToBag = (p) => setBag(b => [...b, p]);
+
+      return (
+        <div className="storefront">
+          <div className="lf-prebar">
+            <span>Free delivery over <strong>£30</strong></span>
+            <span className="lf-prebar-pink">★ Refer a friend, get £15</span>
+            <span>Loyalty pricing for members</span>
+          </div>
+          <LookFantasticChrome />
+          <Hero variant={t.hero} onOpenReel={setOpenReel} />
+          <StatStrip />
+          <SignatureKit onAdd={addToBag} />
+          <ReelsRail onOpen={setOpenReel} />
+          <ShopGrid onAdd={addToBag} />
+          <Edits />
+          <Reviews />
+          <Footer />
+
+          <ReelModal reel={openReel} variant={t.shopTheLook} onClose={() => setOpenReel(null)} />
+          <MiniBag items={bag} />
+
+          <TweaksPanel>
+            <TweakSection label="Hero treatment" />
+            <TweakSelect
+              label="Layout"
+              value={t.hero}
+              options={[
+                { value: "fullbleed", label: "Reel + portrait" },
+                { value: "split", label: "Editorial split" },
+                { value: "marquee", label: "Cinema marquee" },
+                { value: "broadcast", label: "Broadcast (TV channel)" },
+              ]}
+              onChange={(v) => setTweak('hero', v)}
+            />
+            <TweakSection label="Explore products (open any reel)" />
+            <TweakRadio
+              label="Interaction"
+              value={t.shopTheLook}
+              options={[
+                { value: "timeline", label: "Side timeline" },
+                { value: "hotspots", label: "Pause + dots" },
+                { value: "drawer", label: "Scrub drawer" },
+              ]}
+              onChange={(v) => setTweak('shopTheLook', v)}
+            />
+            <TweakSection label="Try it" />
+            <TweakButton label="Open featured reel" onClick={() => setOpenReel(REELS[0])} />
+          </TweaksPanel>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>
